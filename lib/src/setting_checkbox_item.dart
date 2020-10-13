@@ -21,9 +21,10 @@ class SettingCheckboxItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final  isDark = Theme.of(context).brightness == ThemeData.dark().brightness;
     return CheckboxListTile(
       contentPadding: const EdgeInsets.symmetric(horizontal: 15.0),
-      title: Text(title, style: kItemTitle[priority]),
+      title: Text(title, style: isDark?kItemTitleDark[priority]:kItemTitleDark[priority]),
       subtitle: description != null
           ? Text(description, style: kItemSubTitle[priority])
           : null,

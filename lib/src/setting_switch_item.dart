@@ -21,11 +21,12 @@ class SettingSwitchItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final  isDark = Theme.of(context).brightness == ThemeData.dark().brightness;
     return SwitchListTile(
       contentPadding: const EdgeInsets.symmetric(horizontal: 15.0),
       title: Text(title, style: kItemTitle[priority]),
       subtitle: description != null
-          ? Text(description, style: kItemSubTitle[priority])
+          ? Text(description, style:isDark?kItemTitleDark[priority]:kItemTitle[priority])
           : null,
       value: value,
       onChanged: priority == ItemPriority.disabled ? null : onChanged,

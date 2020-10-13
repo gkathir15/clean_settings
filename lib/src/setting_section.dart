@@ -11,12 +11,13 @@ class SettingSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final  isDark = Theme.of(context).brightness == ThemeData.dark().brightness;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (title != null)
           ListTile(
-              title: Text(title, style: kSectionTitle),
+              title: Text(title, style: isDark?kSectionTitle:kSectionTitleDark),
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
               dense: true,
@@ -26,7 +27,7 @@ class SettingSection extends StatelessWidget {
           shrinkWrap: true,
           itemCount: items.length,
           separatorBuilder: (BuildContext context, int index) =>
-              Divider(height: 2.0, color: kSeparator),
+              Divider(height: 2.0, color: kSeparator,endIndent: 10.0,),
           itemBuilder: (BuildContext context, int index) => items[index],
         ),
       ],

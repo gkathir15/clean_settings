@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 enum ItemPriority { normal, high, low, disabled }
 
 const kSectionTitle = TextStyle(fontSize: 13.0, color: Color(0xff1b73e8));
+const kSectionTitleDark = TextStyle(fontSize: 13.0, color: Colors.blue);
 const kSeparator = Color(0xffe0e0e0);
 const kItemTitle = {
   ItemPriority.normal: TextStyle(fontSize: 14.0, color: Color(0xff5f6369)),
@@ -16,4 +18,19 @@ const kItemSubTitle = {
   ItemPriority.low: TextStyle(fontSize: 12.0, color: Color(0xff3e7e0b)),
   ItemPriority.disabled: TextStyle(fontSize: 12.0, color: Color(0xffbdbdbd)),
 };
+const kItemSubTitleDark = {
+  ItemPriority.normal: TextStyle(fontSize: 12.0, color: Colors.white),
+  ItemPriority.high: TextStyle(fontSize: 12.0, color: Colors.red),
+  ItemPriority.low: TextStyle(fontSize: 12.0, color: Colors.lightGreen),
+  ItemPriority.disabled: TextStyle(fontSize: 12.0, color:Color(0xffbdbdbd)),
+};
+
+const kItemTitleDark = {
+  ItemPriority.normal: TextStyle(fontSize: 12.0, color: Colors.white),
+  ItemPriority.high: TextStyle(fontSize: 12.0, color: Colors.red),
+  ItemPriority.low: TextStyle(fontSize: 12.0, color: Colors.lightGreen),
+  ItemPriority.disabled: TextStyle(fontSize: 12.0, color:Color(0xffbdbdbd)),
+};
+
+
 const kWheelPickerItem = TextStyle(fontSize: 13.0, color: Color(0xff5f6369));

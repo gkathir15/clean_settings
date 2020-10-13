@@ -28,11 +28,12 @@ class SettingConfirmItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final  isDark = Theme.of(context).brightness == ThemeData.dark().brightness;
     var listTile = ListTile(
       dense: true,
       visualDensity: VisualDensity.comfortable,
       contentPadding: const EdgeInsets.symmetric(horizontal: 15.0),
-      title: Text(title, style: kItemTitle[priority]),
+      title: Text(title, style: isDark?kItemTitleDark[priority]:kItemTitle[priority]),
       subtitle: displayValue != null
           ? Text(displayValue, style: kItemSubTitle[priority])
           : null,
