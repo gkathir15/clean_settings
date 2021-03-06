@@ -28,12 +28,13 @@ class SettingConfirmItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final  isDark = Theme.of(context).brightness == ThemeData.dark().brightness;
+    final isDark = Theme.of(context).brightness == ThemeData.dark().brightness;
     var listTile = ListTile(
       dense: true,
       visualDensity: VisualDensity.comfortable,
       contentPadding: const EdgeInsets.symmetric(horizontal: 15.0),
-      title: Text(title, style: isDark?kItemTitleDark[priority]:kItemTitle[priority]),
+      title: Text(title,
+          style: isDark ? kItemTitleDark[priority] : kItemTitle[priority]),
       subtitle: displayValue != null
           ? Text(displayValue, style: kItemSubTitle[priority])
           : null,
@@ -45,19 +46,19 @@ class SettingConfirmItem extends StatelessWidget {
 
   Future<void> _showConfirmDialog(BuildContext context) async {
     var result = await showDialog(
-        context: context,
-        child: AlertDialog(
-          title: Text(alertTitle ?? title),
-          content: Text(alertMessage),
-          actions: <Widget>[
-            FlatButton(
-                child: Text(cancelButtonText ?? 'Cancel'),
-                onPressed: () => Navigator.pop(context, false)),
-            FlatButton(
-                child: Text(okButtonText ?? 'Ok'),
-                onPressed: () => Navigator.pop(context, true))
-          ],
-        ));
+        builder: (context) => AlertDialog(
+              title: Text(alertTitle ?? title),
+              content: Text(alertMessage),
+              actions: <Widget>[
+                TextButton(
+                    onPressed: () => Navigator.pop(context, false),
+                    child: Text(cancelButtonText ?? 'Cancel')),
+                TextButton(
+                    onPressed: () => Navigator.pop(context, true),
+                    child: Text(okButtonText ?? 'Ok'))
+              ],
+            ),
+        context: context);
     if (result) {
       onConfirm();
     } else {
